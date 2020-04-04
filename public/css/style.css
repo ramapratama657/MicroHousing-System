@@ -1,0 +1,9 @@
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+
+.sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
+
+.sidebar.collapse{display:block!important}}
+@media (max-width:992px){.sidebar.collapse{display:none}.main{margin-left:0!important;margin-right:0!important}.auto{max-width:100%}}
+
+
+.animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
