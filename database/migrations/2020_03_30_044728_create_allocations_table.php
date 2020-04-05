@@ -15,6 +15,11 @@ class CreateAllocationsTable extends Migration
     {
         Schema::create('allocations', function (Blueprint $table) {
             $table->id();
+            $table->integer('application_id');
+            $table->integer('unit_id');
+            $table->date('formDate');
+            $table->integer('duration');
+            $table->date('endDate');
             $table->timestamps();
         });
     }

@@ -15,6 +15,12 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+            $table->integer('applicant_id');
+            $table->integer('residence_id');
+            $table->date('applicationDate');
+            $table->string('requiredMonth');
+            $table->string('requiredYear');
+            $table->string('Status');
             $table->timestamps();
         });
     }

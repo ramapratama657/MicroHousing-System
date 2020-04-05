@@ -14,10 +14,10 @@ class CreateApplicantTable extends Migration
     public function up()
     {
         Schema::create('applicants', function (Blueprint $table) {
-	    $table->id();
-	    $table->integer('user_id');
-	    $table->string('email');
-	    $table->double('monthlyIncome', 8, 2);
+            $table->id();
+            $table->integer('user_id');
+            $table->string('email');
+            $table->double('monthlyIncome', 8, 2);
             $table->timestamps();
         });
     }

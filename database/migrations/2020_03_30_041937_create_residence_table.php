@@ -14,11 +14,11 @@ class CreateResidenceTable extends Migration
     public function up()
     {
         Schema::create('residences', function (Blueprint $table) {
-	    $table->id();
-	    $table->string('address');
-	    $table->integer('numUnits');
-	    $table->double('sizePerUnit');
-	    $table->double('monthlyRental');
+            $table->id();
+            $table->string('address');
+            $table->integer('numUnits');
+            $table->double('sizePerUnit');
+            $table->double('monthlyRental');
             $table->timestamps();
         });
     }
