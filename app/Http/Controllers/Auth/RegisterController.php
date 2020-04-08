@@ -66,21 +66,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
+        
+        $userid = User::create([
             'fullname' => $data['fullname'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-        ]);
+        ])->id;
         
-        $insertedId = $user->id;
 
         if ($data['is_admin']==1){
             return Admin::create([
-                'User_id' => $insertedId
+                'User_id' => $userid
             ]);
         }else{
             return Applicant::create([
-                'User_id' => $insertedId,
+                'User_id' => $userid,
                 'email' => $data['username'],
                 'monthlyIncome' => $data['monthlyIncome'],
             ]);

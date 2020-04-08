@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+
+
+// Residence
+Route::get('/residence/view', 'ResidenceController@viewResidence');
+Route::get('/residence/form', function () {
+    return view('residence/form');
+});
+Route::post('/residence', 'ResidenceController@store')->name('residence');
+Route::get('/residence/edit/{id}', 'ResidenceController@editResidence');
+Route::post('/residence/edit/{id}', 'ResidenceController@storeEdit')->name('storeEdit');

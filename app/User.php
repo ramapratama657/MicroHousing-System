@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fullname', 'username', 'password',
+        'fullname', 'username', 'password',     'is_admin',
     ];
 
     /**
@@ -56,4 +57,14 @@ class User extends Authenticatable
         }
           
     }
+
+    public function Admin()
+    {
+        return $this->has('App\Admin');
+    }
+
+    public function Applicant()
+    {
+        return $this->has('App\Applicant');
+    }    
 }

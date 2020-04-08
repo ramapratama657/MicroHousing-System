@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use App\Applicant;
 use App\Residence;
 
@@ -18,21 +19,21 @@ class ResidenceController extends Controller
         ]);
         Residence::create($validatedData);
 
-        return redirect('/viewResidence');
+        return redirect('residence/view');
 	}
 
     public function viewResidence()
     {
         $AllResidences = Residence::all();
 
-     	return view('viewResidence', compact('AllResidences'));
+     	return view('residence/view', compact('AllResidences'));
     }
 
     public function editResidence($id)
     {
-        $ThisResidences = Residence::findOrFail($id);
+        $ThisResidence = Residence::findOrFail($id);
 
-     	return view('FormResidence', compact('ThisResidences'));
+     	return view('residence/formEdit', compact('ThisResidence'));
     }
 
     public function storeEdit(Request $request, $id)
@@ -45,6 +46,6 @@ class ResidenceController extends Controller
         ]);
         Residence::whereId($id)->update($validatedData);
 
-        return redirect('/viewResidence');
+        return redirect('residence/view');
     }
 }
