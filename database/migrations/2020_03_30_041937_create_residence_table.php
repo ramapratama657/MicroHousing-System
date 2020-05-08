@@ -19,6 +19,7 @@ class CreateResidenceTable extends Migration
             $table->integer('numUnits');
             $table->double('sizePerUnit');
             $table->double('monthlyRental');
+            $table->string('img');
             $table->timestamps();
         });
     }
