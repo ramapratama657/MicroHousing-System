@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends model
+class Applicant extends Model
 {
     protected $fillable = [
-        'user_id',
+        'user_id', 'email', 'monthlyIncome',
     ];
 
     public function user()
