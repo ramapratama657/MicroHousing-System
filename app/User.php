@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fullname', 'username', 'password',     'is_admin',
+        'fullname', 'username', 'password', 'is_admin',
     ];
 
     /**
@@ -58,13 +58,23 @@ class User extends Authenticatable
           
     }
 
-    public function Admin()
+    public function isAdmin()
     {
-        return $this->has('App\Admin');
+        return $this->hasOne('App\Admin');
     }
 
-    public function Applicant()
+    public function isApplicant()
     {
-        return $this->has('App\Applicant');
+        return $this->hasOne('App\Applicant');
+    }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+    public function UserIs()
+    {
+        return 'is_admin';
     }    
 }

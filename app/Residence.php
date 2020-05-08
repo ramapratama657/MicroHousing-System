@@ -9,4 +9,16 @@ class Residence extends Model
     protected $fillable = [
         'address', 'numUnits', 'sizePerUnit', 'monthlyRental',
     ];
+
+    public function unit()
+    {
+    	# code...
+    	return $this->hasMany('App\Unit');
+    }
+
+    public function allocation()
+    {
+    	# code...
+    	return $this->hasManyThrough('App\Allocation','App\Unit');	
+    }
 }

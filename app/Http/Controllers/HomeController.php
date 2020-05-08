@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -11,10 +12,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,16 +20,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-  
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function adminHome()
-    {
-        return view('admin');
+        if (Auth::check()) {
+            // The user is logged in...
+            $thisStat = auth()->user()->is_admin;
+            if($thisStat == 1){
+                return redirect("/staff");
+            }else{
+                return redirect("/applicant");
+            }
+        }else{
+            return redirect()->guest('login');
+        }
     }
 }

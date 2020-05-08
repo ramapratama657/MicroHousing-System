@@ -1,82 +1,34 @@
-@extends('layouts.app')
+@extends('layouts.layoutStaff')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Update Resident') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('storeResidenceEdit',$ThisResidence->id)}}">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">Address </label>
-                           
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $ThisResidence->address }}" required  autofocus>
-                           
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="numUnits" class="col-md-4 col-form-label text-md-right">Units</label>
-                           
-                            <div class="col-md-6">
-                                <input id="numUnits" type="text" class="form-control @error('numUnits') is-invalid @enderror" name="numUnits" value="{{ $ThisResidence->numUnits }}" required  autofocus>
-                           
-                                @error('numUnits')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="sizePerUnit" class="col-md-4 col-form-label text-md-right">Unit Size </label>
-                           
-                            <div class="col-md-6">
-                                <input id="sizePerUnit" type="text" class="form-control @error('sizePerUnit') is-invalid @enderror" name="sizePerUnit" value="{{ $ThisResidence->sizePerUnit }}" required  autofocus>
-                           
-                                @error('sizePerUnit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="monthlyRental" class="col-md-4 col-form-label text-md-right">Monthly Rental </label>
-                           
-                            <div class="col-md-6">
-                                <input id="monthlyRental" type="text" class="form-control @error('monthlyRental') is-invalid @enderror" name="monthlyRental" value="{{ $ThisResidence->monthlyRental }}" required  autofocus>
-                           
-                                @error('monthlyRental')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submmit') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="jumbotron" style="height: 120px">
+        <img src="{{asset('img/menu.png')}}" alt="menu" id="menu-toggle">
+        <h2>MICRO HOUSING</h2>
+        <div>
+          <span> Update Residence </span>
         </div>
     </div>
-</div>
+
+    <div class="container shadow bg-white rounded mb-3">
+        <form method="POST" action="{{ route('storeResidenceEdit',$ThisResidence->id)}}">
+            @csrf               
+          <div class="row mt-3 mb-3">
+            <div class="col-sm-12 col-md-6">
+              <span>Address : </span>
+              <input id="address" type="text" class="form-control" name="address" value="{{ $ThisResidence->address }}" required  autofocus>
+              <span>Number Units : </span>
+              <input id="numUnits" type="text" class="form-control" name="numUnits" value="{{ $ThisResidence->numUnits }}" required  autofocus>
+              <span>Size Per Unit</span>
+              <input id="sizePerUnit" type="text" class="form-control" name="sizePerUnit" value="{{ $ThisResidence->sizePerUnit }}" required  autofocus>
+              <span>Montly Rental</span>
+              <input id="monthlyRental" type="text" class="form-control" name="monthlyRental" value="{{ $ThisResidence->monthlyRental }}" required  autofocus>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-2 mb-3 btn-lg">Update</button>
+        </form>
+
+    </div>
+
+
 @endsection

@@ -39,7 +39,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request)
+     public function login(Request $request)
     {   
         $input = $request->all();
    
@@ -51,9 +51,9 @@ class LoginController extends Controller
         if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
-                return redirect('/residence/view');
+                return redirect('/staff');
             }else{
-                return redirect()->route('home');
+                return redirect('/applicant');
             }
         }else{
             return redirect()->route('login')
