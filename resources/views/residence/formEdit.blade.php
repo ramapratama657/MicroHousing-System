@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Update Resident') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('storeEdit',$ThisResidence->id)}}">
+                    <form method="POST" action="{{ route('storeResidenceEdit',$ThisResidence->id)}}">
                         @csrf
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">Address </label>
