@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Residence extends Model
 {
     protected $fillable = [
-        'address', 'numUnits', 'sizePerUnit', 'monthlyRental',
+        'address', 'numUnits', 'sizePerUnit', 'monthlyRental', 'img',
     ];
 
     public function unit()

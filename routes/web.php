@@ -64,8 +64,6 @@ Route::get('/application/assign/{id}/approve','ResidenceController@applicationAp
 Route::post('/application/assign/{id}/approve','ResidenceController@progApprove')->name('progApprove');
 Route::get('/application/assign/{id}/decline','ResidenceController@applicationDecline');
 
-
-
 // Application Applicant
 Route::get('/application/', 'ApplicationController@viewApplication');
 Route::get('/application/form/{id}', 'ApplicationController@formApplication');
@@ -73,14 +71,8 @@ Route::post('/application/form/{id}', 'ApplicationController@newApplication')->n
 Route::get('/application/edit/{id}', 'ApplicationController@editApplication');
 Route::post('/application/edit/{id}', 'ApplicationController@storeEdit')->name('storeApplicationEdit');
 
-
 // Residence Applicant
 Route::get('/application/residence', 'ApplicationController@viewResidence');
 
 // Alocation Applicant
 Route::get('/application/allocation/{id}','ApplicationController@viewAllocation');
-
-
-
-
-
