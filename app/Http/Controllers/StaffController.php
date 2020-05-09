@@ -28,7 +28,6 @@ class StaffController extends Controller
 
         $newUser->fullname = $Request['fullname'];
         $newUser->username = $Request['username'];
-        $newUser->email = $Request['email'];
         $newUser->password = Hash::make($Request['password']);
         $newUser->is_admin = 1;
         

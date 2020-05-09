@@ -29,9 +29,8 @@ class ApplicationController extends Controller
 			$Applicant_id = User::find($user_id)->isApplicant->id;
 			//dd($Applicant_id);
 			
-			$AllApplication = Application::find($Applicant_id)->get();
+			$AllApplication = Application::where('applicant_id',$Applicant_id)->get();
 			//dd($AllApplication);
-
 
     		$thisApplicant = Auth::user()->username;
 

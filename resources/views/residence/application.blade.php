@@ -50,7 +50,6 @@ tr:nth-child(even) {
           <td>{{$ThisApplication->Status}}</td>
           <td>
             @if ($ThisApplication->Status == "New Application")
-                I have one record!
             <a href="{{url('/application/assign/' .$ThisApplication->id. '/approve')}}"
               class="btn btn-primary">Aprove</a>
             <a href="{{url('/application/assign/' .$ThisApplication->id. '/decline')}}"
